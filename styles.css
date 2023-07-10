@@ -1,0 +1,40 @@
+*{
+  box-sizing: border-box;/*bu özellik elementlerin çevrelerini genişlikle sabit tutar. daha sonra elemente border veya padding değeri verirsek resim boyutunun değişmesini engeller*/
+}
+body{
+  margin: 0;
+  font-family: sans-serif;
+  background-color:#f5f6f7;
+
+}
+.header{
+  text-transform: uppercase;/*metnin harflerini büyütür. lovercase harfleri küçültür. capitalize ise cümlelerin baş harflerini büyük yapar*/
+  padding: 32px;
+  background-color: #0a0a23 ;
+  color: #fff;
+  border-bottom: 4px solid #fdb347;
+  text-align: center;
+}
+.gallery{
+  display: flex;/*bu özellik ile flex itemlerimizi içine yerleştireceğimiz konteynırı belirlemiş oluyoruz*/
+  /*bu özellik varsayılan olarak itemleri tek satırda sıralayacaktır*/
+  flex-direction: row;/*bu özellik itemleri nasıl sıralayacağımızı belirtir*/
+  flex-wrap: wrap-reverse;/*kutumuzun çok küçük olduğu zamanlarda itemlerin nasıl davranacagını belirler. kutu küçüldükçe itemler alt satıra geçer*/
+  justify-content: center;/*itemelrin tex-alignesi diyebiliriz*/
+  align-items: center;/*ne işe yaradığını anlayamadım*/
+  padding: 20px 10px;
+  max-width:1400px;/*bu bir genişlikten ziyade sayfa büyürken gallery lasının büyümesni engellemez faat bir sınır koyar*/
+  margin: 0 auto;/*sağ ve sol taraftan marjini oto yapmak bu elementin her zaman sayfanın ortasıda kalmasını sağlar*/
+  gap: 16px;/*itemlerin arasına boşluk koyar*/
+}
+.gallery::after{
+  content: "";
+  width: 350px;/* item sayısı tek sayı olduğundan yan yana iki adet resim gelecek kadar büyüttüğümüzde sayfamızı son item justify özelliğinden dolayı merkezde konumlanıyor eğer bunu sol tarafa koymak istersek bir içi boş psuedo element oluşturabiliriz*/ 
+}
+.gallery img{
+  width: 100%;
+  max-width: 350px;/*üstteki özellikte img element blok element olduğuiçin  normalde satırın tamamnını kaplaması gerekirken max-wight vererek sayfa büyürken fotoğrafında büyümesini fakat sayfa ne kadar büyürse büyüsün 350px ile sınırladık*/
+  height: 300px;/*bu satır sayfa küçülürken resimlerin hep aynı yükseklikte kalmasını sağlar bu kaldırılırsa sayfa küçüldükçe resim boyutu bozulmadan resimin yüksekliğide azalacak, fakat resim max genişliğine ulaşırsa yükseklik değişmeyecek*/
+  object-fit: cover;/*ekran boyutu küçülüp büyürken resmin bozulmamasını sağlar varsayılan olarak fill gelir.CONTAİN özelliğini anlayamadım*/
+  border-radius: 10px;
+}
